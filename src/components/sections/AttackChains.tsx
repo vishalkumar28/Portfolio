@@ -81,7 +81,6 @@ export default function AttackChains() {
               }}
               // Applying a 3D glowing shadow on hover using Tailwind classes in the style prop if needed, or simply let Framer Motion handle a smooth shadow transition.
               // We'll use a sophisticated drop shadow for the 3D effect:
-              whileHoverCapture={{}} // just dummy to trigger
             >
               <motion.div
                 className="absolute inset-0 z-[-1] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-sm"

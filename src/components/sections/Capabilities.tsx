@@ -11,7 +11,7 @@ import {
   DatabaseZap, Ghost, Activity, Skull 
 } from 'lucide-react';
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, any> = {
   'VAPT': ShieldAlert,
   'Penetration Testing': TerminalSquare,
   'Reconnaissance': Search,
