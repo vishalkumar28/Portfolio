@@ -38,12 +38,23 @@ export default function Navbar() {
   });
 
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileOpen) {
+        setMobileOpen(false);
+      }
+    };
+
     if (mobileOpen) {
       document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
     } else {
       document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
     }
-    return () => { document.body.style.overflow = ''; };
+    return () => { 
+      document.body.style.overflow = ''; 
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, [mobileOpen]);
 
   const scrollToSection = (id: string) => {

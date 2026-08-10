@@ -6,15 +6,15 @@ import ProfileImage from '@/components/ui/ProfileImage';
 export default function Hero() {
   return (
     <section className="relative w-full bg-transparent" id="hero">
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 h-[100dvh] min-h-[600px] w-full overflow-hidden flex flex-col">
         {/* Gradients to blend text over the interactive background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary/90 z-10 pointer-events-none" />
         </div>
 
         {/* Content Wrapper */}
-        <div className="relative z-20 h-screen w-full container-responsive flex flex-col justify-end pb-12 md:pb-24 pointer-events-none">
-            <div className="flex flex-col lg:flex-row items-start lg:items-end w-full justify-between gap-8 pointer-events-none">
+        <div className="relative z-20 flex-1 w-full container-responsive flex flex-col justify-end lg:justify-center pb-12 lg:pb-0 pt-24 pointer-events-none">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center w-full justify-between gap-6 md:gap-8 pointer-events-none mt-auto lg:mt-0">
               <div className="flex flex-col items-start text-left pointer-events-auto">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
