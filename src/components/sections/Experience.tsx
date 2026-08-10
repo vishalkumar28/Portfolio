@@ -22,7 +22,7 @@ export default function Experience() {
           description="Practical security experience through hands-on engagements."
         />
 
-        <div className="flex flex-col border-t border-white/[0.05]">
+        <div className="flex flex-col border-t border-white/[0.05] overflow-hidden">
           {experience.map((exp, i) => (
             <motion.div
               key={exp.id}
