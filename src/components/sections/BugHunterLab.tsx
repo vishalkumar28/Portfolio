@@ -228,7 +228,7 @@ export default function BugHunterLab() {
             Building BugHunterLab required overcoming complex challenges in real-time task orchestration, managing large evidence payloads securely, and normalizing output from diverse CLI security tools into a unified PostgreSQL schema.
           </p>
           <motion.a
-            href="https://github.com/vishalkumar28"
+            href="https://github.com/vishalkumar28/BugHunterLab"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 10 }}
