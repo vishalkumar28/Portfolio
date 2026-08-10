@@ -13,7 +13,7 @@ export default function Hero() {
         </div>
 
         {/* Content Wrapper */}
-        <div className="relative z-20 h-screen w-full flex flex-col justify-end pb-12 md:pb-24 px-6 md:px-12 lg:px-20 pointer-events-none">
+        <div className="relative z-20 h-screen w-full container-responsive flex flex-col justify-end pb-12 md:pb-24 pointer-events-none">
             <div className="flex flex-col lg:flex-row items-start lg:items-end w-full justify-between gap-8 pointer-events-none">
               <div className="flex flex-col items-start text-left pointer-events-auto">
                 <motion.div
@@ -32,8 +32,7 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-display font-bold text-text-primary leading-[0.85] tracking-tighter uppercase mix-blend-difference"
-                  style={{ fontSize: 'clamp(4rem, 13vw, 12rem)' }}
+                  className="font-display font-bold text-text-primary fluid-h1 tracking-tighter uppercase mix-blend-difference"
                 >
                   Vishal<br />Kumar<span className="text-accent">.</span>
                 </motion.h1>
@@ -62,7 +61,7 @@ export default function Hero() {
                 </motion.div>
               </div>
 
-              <div className="hidden lg:block pointer-events-auto">
+              <div className="flex lg:block items-center justify-center w-full lg:w-auto mt-8 lg:mt-0 pointer-events-auto">
                 <ProfileImage />
               </div>
             </div>

@@ -63,7 +63,7 @@ export default function SecurityProof() {
 
               <div className="flex flex-col h-full justify-between gap-6">
                 <div>
-                  <h3 className="text-5xl md:text-6xl font-display font-bold text-text-primary mb-2">
+                  <h3 className="fluid-h2 font-display font-bold text-text-primary mb-2">
                     {metric.value}
                   </h3>
                   <div className="h-px w-8 bg-accent/50 mb-4 group-hover:w-16 transition-all duration-300" />

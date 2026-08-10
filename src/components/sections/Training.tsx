@@ -26,13 +26,13 @@ const TrainingCard = ({ group, index, progress, range, targetScale }: any) => {
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <div ref={container} className="h-[60vh] md:h-[50vh] flex items-center justify-center sticky top-24 md:top-32">
+    <div ref={container} className="min-h-[40vh] md:h-[50vh] flex items-center justify-center md:sticky md:top-32 py-4 md:py-0">
       <motion.div 
         style={{ 
           scale: reducedMotion ? 1 : scale, 
-          top: `calc(-5vh + ${index * 25}px)` 
+          top: `calc(0px + ${index * 0}px)` 
         }}
-        className="w-full relative p-8 md:p-12 rounded-[2rem] bg-[#080808] border border-white/[0.05] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] origin-top transition-all duration-700 hover:border-white/[0.1] h-full flex flex-col justify-center"
+        className="w-full relative p-8 md:p-12 rounded-[2rem] bg-[#080808] border border-white/[0.05] shadow-[0_4px_20px_rgba(0,0,0,0.5)] md:shadow-[0_-10px_40px_rgba(0,0,0,0.5)] md:origin-top transition-all duration-700 hover:border-white/[0.1] flex flex-col justify-center"
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.02)_0%,transparent_70%)] pointer-events-none rounded-[2rem]" />
         

@@ -50,8 +50,36 @@ export default function Capabilities() {
   const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-460vw"]);
 
   return (
-    <section ref={targetRef} id="capabilities" className="relative h-[600vh] bg-transparent">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+    <section ref={targetRef} id="capabilities" className="relative md:h-[600vh] bg-transparent">
+      {/* Mobile Layout: Compact vertical stack */}
+      <div className="md:hidden flex flex-col gap-12 py-16 px-4">
+        {capabilities.map((category, idx) => (
+          <div key={category.id} className="w-full flex flex-col gap-6">
+            <div className="flex items-center gap-4">
+              <span className="text-accent text-[10px] font-mono tracking-widest uppercase">
+                {`0${idx + 1}`} — CATEGORY
+              </span>
+            </div>
+            <h2 className="fluid-h3 font-display font-black text-white uppercase tracking-tight">
+              {category.title}
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {category.items.map((item) => {
+                const Icon = iconMap[item.name] || ShieldAlert;
+                return (
+                  <div key={item.name} className="flex flex-col items-center justify-center p-4 bg-[#0A0A0A] border border-white/[0.05] rounded-xl">
+                    <Icon className="w-6 h-6 text-accent mb-2" strokeWidth={1.5} />
+                    <span className="text-[10px] font-medium text-white/80 text-center leading-tight">{item.name}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop Layout: Horizontal Scroll */}
+      <div className="hidden md:flex sticky top-0 h-screen items-center overflow-hidden">
         
         {/* Added w-max and a gap-[15vw] to create that clear "break" you wanted between sections */}
         <motion.div style={{ x }} className="flex h-full w-max gap-[15vw]">

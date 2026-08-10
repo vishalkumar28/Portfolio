@@ -37,7 +37,7 @@ export default function Experience() {
                 <p className="text-[10px] font-mono tracking-widest text-text-muted uppercase mb-2">
                   {exp.period}
                 </p>
-                <h3 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-text-primary uppercase tracking-tight">
+                <h3 className="font-display font-bold text-text-primary uppercase tracking-tight fluid-h2">
                   {exp.company}
                 </h3>
                 <p className="text-accent font-mono text-sm tracking-widest uppercase mt-2">

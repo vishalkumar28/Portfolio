@@ -59,7 +59,7 @@ export default function Contact() {
                 href="mailto:vishalkumar280404@gmail.com" 
                 className="group flex items-center gap-4 hover:opacity-80 transition-opacity"
               >
-                <span className="text-xl md:text-2xl lg:text-3xl font-display font-bold text-text-primary">
+                <span className="text-[clamp(1rem,4.5vw,1.875rem)] font-display font-bold text-text-primary break-all md:break-normal">
                   vishalkumar280404@gmail.com
                 </span>
                 <span className="w-12 h-12 flex items-center justify-center rounded-full border border-white/[0.2] text-white group-hover:bg-white group-hover:text-black transition-all">

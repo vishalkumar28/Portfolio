@@ -121,7 +121,7 @@ export default function Navbar() {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden relative w-10 h-10 flex items-center justify-center"
+            className="md:hidden relative w-12 h-12 flex items-center justify-center -mr-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
@@ -162,7 +162,7 @@ export default function Navbar() {
                 <motion.button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className={`text-xl font-mono tracking-widest uppercase transition-colors ${
+                  className={`text-xl md:text-2xl py-3 px-8 w-full text-center font-mono tracking-widest uppercase transition-colors ${
                     activeSection === link.id ? 'text-accent' : 'text-text-primary'
                   }`}
                   initial={{ opacity: 0, y: 20 }}

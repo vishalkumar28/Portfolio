@@ -157,9 +157,9 @@ function CameraRig() {
 }
 
 /* ─── Full Scene ─── */
-function IntelligenceCore() {
+function IntelligenceCore({ isMobile }: { isMobile: boolean }) {
   // Generate random nodes across a wide background area
-  const numNodes = 40;
+  const numNodes = isMobile ? 20 : 40;
   const [nodes] = useState(() => {
     const arr: [number, number, number][] = [];
     for (let i = 0; i < numNodes; i++) {
@@ -219,9 +219,9 @@ function IntelligenceCore() {
         ))}
       </group>
 
-      <FloatingParticles count={150} />
-      <Stars radius={25} depth={40} count={300} factor={2} saturation={0} fade speed={0.5} />
-      <CameraRig />
+      <FloatingParticles count={isMobile ? 50 : 150} />
+      <Stars radius={25} depth={40} count={isMobile ? 150 : 300} factor={2} saturation={0} fade speed={0.5} />
+      {!isMobile && <CameraRig />}
     </>
   );
 }
@@ -259,6 +259,7 @@ function CSSFallback() {
 export default function Scene() {
   const [webglSupported, setWebglSupported] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -277,6 +278,11 @@ export default function Scene() {
       if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
         setWebglSupported(false);
       }
+
+      setIsMobile(window.innerWidth < 768);
+      const handleResize = () => setIsMobile(window.innerWidth < 768);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     } catch {
       setWebglSupported(false);
     }
@@ -296,7 +302,7 @@ export default function Scene() {
       }}
       style={{ position: 'absolute', inset: 0 }}
     >
-      <IntelligenceCore />
+      <IntelligenceCore isMobile={isMobile} />
     </Canvas>
   );
 }

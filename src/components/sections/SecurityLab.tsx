@@ -22,13 +22,13 @@ const Card = ({ area, index, progress, range, targetScale }: any) => {
   const scale = useTransform(progress, range, [1, targetScale]);
   
   return (
-    <div ref={container} className="h-screen flex items-center justify-center sticky top-0">
+    <div ref={container} className="min-h-screen md:h-screen flex items-center justify-center md:sticky md:top-0 py-8 md:py-0">
       <motion.div 
         style={{ 
           scale: reducedMotion ? 1 : scale, 
           top: `calc(-5vh + ${index * 25}px)` 
         }}
-        className="w-full relative flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 p-8 md:p-12 lg:px-12 lg:py-16 rounded-[2rem] bg-[#050505] border border-white/[0.05] shadow-[0_-10px_40px_rgba(0,0,0,0.8)] origin-top group transition-all duration-700 hover:border-white/[0.1]"
+        className="w-full relative flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 p-8 md:p-12 lg:px-12 lg:py-16 rounded-[2rem] bg-[#050505] border border-white/[0.05] shadow-none md:shadow-[0_-10px_40px_rgba(0,0,0,0.8)] origin-top group transition-all duration-700 hover:border-white/[0.1]"
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.02)_0%,transparent_70%)] pointer-events-none rounded-[2rem] transition-opacity duration-700 opacity-30 group-hover:opacity-100" />
         

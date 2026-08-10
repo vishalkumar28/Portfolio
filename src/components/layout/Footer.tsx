@@ -32,7 +32,7 @@ export default function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-text-muted hover:text-accent hover:bg-surface-hover transition-all text-xs font-mono font-bold"
+                className="w-12 h-12 rounded-lg bg-surface flex items-center justify-center text-text-muted hover:text-accent hover:bg-surface-hover transition-all text-xs font-mono font-bold"
                 aria-label={link.label}
               >
                 {link.icon}

@@ -88,12 +88,13 @@ export default function BugHunterLab() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-2 md:gap-4 font-mono text-[10px] md:text-xs tracking-widest text-text-muted uppercase"
+            className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-2 md:gap-4 font-mono text-[10px] md:text-xs tracking-widest text-text-muted uppercase"
           >
             {workflow.map((step, i) => (
-              <div key={step} className="flex items-center gap-2 md:gap-4">
+              <div key={step} className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
                 <span className="text-accent">{step}</span>
-                {i < workflow.length - 1 && <span>→</span>}
+                {i < workflow.length - 1 && <span className="hidden md:inline">→</span>}
+                {i < workflow.length - 1 && <span className="md:hidden">↓</span>}
               </div>
             ))}
           </motion.div>

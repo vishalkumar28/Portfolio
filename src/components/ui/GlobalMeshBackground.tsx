@@ -4,9 +4,11 @@ import { useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-const MeshPlane = () => {
+const MeshPlane = ({ isMobile }: { isMobile: boolean }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const geomRef = useRef<THREE.PlaneGeometry>(null);
+
+  const segments = isMobile ? 32 : 64;
 
   useFrame((state) => {
     if (!geomRef.current || !meshRef.current) return;
@@ -28,8 +30,8 @@ const MeshPlane = () => {
       // Base wave
       let z = Math.sin(x * 0.5 + time) * Math.cos(y * 0.5 + time) * 0.5;
       
-      // Mouse interaction: push vertices up if close to mouse
-      if (dist < 5) {
+      // Mouse interaction: push vertices up if close to mouse (only on desktop)
+      if (!isMobile && dist < 5) {
         // the closer, the higher
         z += (5 - dist) * 0.5;
       }
@@ -46,7 +48,7 @@ const MeshPlane = () => {
 
   return (
     <mesh ref={meshRef} position={[0, -2, -5]} rotation={[-Math.PI / 3, 0, 0]}>
-      <planeGeometry ref={geomRef} args={[40, 40, 64, 64]} />
+      <planeGeometry ref={geomRef} args={[40, 40, segments, segments]} />
       <meshBasicMaterial
         color="#3b82f6"
         wireframe={true}
@@ -60,9 +62,14 @@ const MeshPlane = () => {
 
 export default function GlobalMeshBackground() {
   const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   if (!isMounted) return null;
@@ -72,10 +79,10 @@ export default function GlobalMeshBackground() {
       <Canvas 
         camera={{ position: [0, 2, 5], fov: 60 }} 
         gl={{ antialias: false, alpha: true }}
-        dpr={[1, 2]}
+        dpr={isMobile ? 1 : [1, 2]}
       >
         <fog attach="fog" args={['#050505', 5, 20]} />
-        <MeshPlane />
+        <MeshPlane isMobile={isMobile} />
       </Canvas>
       <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/20 via-transparent to-bg-primary pointer-events-none" />
     </div>

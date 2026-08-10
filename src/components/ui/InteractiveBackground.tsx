@@ -4,10 +4,10 @@ import { useRef, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-const ParticleNetwork = () => {
+const ParticleNetwork = ({ isMobile }: { isMobile: boolean }) => {
   const pointsRef = useRef<THREE.Points>(null);
 
-  const particleCount = 800;
+  const particleCount = isMobile ? 300 : 800;
 
   const [positions, colors] = useMemo(() => {
     const pos = new Float32Array(particleCount * 3);
@@ -38,12 +38,14 @@ const ParticleNetwork = () => {
     pointsRef.current.rotation.y = state.clock.elapsedTime * 0.015;
     pointsRef.current.rotation.x = state.clock.elapsedTime * 0.01;
 
-    // Subtle parallax effect tracking mouse pointer
-    const targetX = state.pointer.x * 0.3;
-    const targetY = state.pointer.y * 0.3;
-    
-    pointsRef.current.position.x += (targetX - pointsRef.current.position.x) * 0.05;
-    pointsRef.current.position.y += (targetY - pointsRef.current.position.y) * 0.05;
+    // Subtle parallax effect tracking mouse pointer (skip on mobile)
+    if (!isMobile) {
+      const targetX = state.pointer.x * 0.3;
+      const targetY = state.pointer.y * 0.3;
+      
+      pointsRef.current.position.x += (targetX - pointsRef.current.position.x) * 0.05;
+      pointsRef.current.position.y += (targetY - pointsRef.current.position.y) * 0.05;
+    }
   });
 
   return (
@@ -73,9 +75,14 @@ const ParticleNetwork = () => {
 
 export default function InteractiveBackground() {
   const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   if (!isMounted) return null;
@@ -85,10 +92,10 @@ export default function InteractiveBackground() {
       <Canvas 
         camera={{ position: [0, 0, 5], fov: 60 }} 
         gl={{ antialias: false, alpha: true }}
-        dpr={[1, 2]} // Optimize for high DPI displays but cap at 2
+        dpr={isMobile ? 1 : [1, 2]} // Cap at 1 for mobile to save performance
       >
         <fog attach="fog" args={['#050505', 2, 8]} />
-        <ParticleNetwork />
+        <ParticleNetwork isMobile={isMobile} />
       </Canvas>
       {/* Overlay to ensure bottom fades out properly */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505] pointer-events-none" />

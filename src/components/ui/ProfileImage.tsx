@@ -7,7 +7,7 @@ import InteractiveBackground from './InteractiveBackground';
 export default function ProfileImage() {
   return (
     <motion.div
-      className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] xl:w-[500px] xl:h-[500px] mx-auto lg:mx-0 mb-8 rounded-none bg-surface/20 backdrop-blur-sm overflow-hidden flex items-end justify-center group cursor-crosshair"
+      className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] mx-auto lg:mx-0 mb-4 lg:mb-0 rounded-none bg-surface/20 backdrop-blur-sm overflow-hidden flex items-end justify-center group cursor-crosshair"
       initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
       animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
       transition={{ duration: 1, ease: "easeOut" }}
