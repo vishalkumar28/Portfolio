@@ -1,0 +1,76 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import ProfileImage from '@/components/ui/ProfileImage';
+
+export default function Hero() {
+  return (
+    <section className="relative w-full bg-transparent" id="hero">
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* Gradients to blend text over the interactive background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary/90 z-10 pointer-events-none" />
+        </div>
+
+        {/* Content Wrapper */}
+        <div className="relative z-20 h-screen w-full flex flex-col justify-end pb-12 md:pb-24 px-6 md:px-12 lg:px-20 pointer-events-none">
+            <div className="flex flex-col lg:flex-row items-start lg:items-end w-full justify-between gap-8 pointer-events-none">
+              <div className="flex flex-col items-start text-left pointer-events-auto">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="flex items-center gap-4 mb-4 md:mb-6 border-l-2 border-accent pl-4"
+                >
+                  <span className="w-2 h-2 rounded-none bg-accent animate-pulse" />
+                  <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-text-primary mix-blend-difference">
+                    Penetration Tester | Cybersecurity Trainer
+                  </span>
+                </motion.div>
+
+                <motion.h1
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="font-display font-bold text-text-primary leading-[0.85] tracking-tighter uppercase mix-blend-difference"
+                  style={{ fontSize: 'clamp(4rem, 13vw, 12rem)' }}
+                >
+                  Vishal<br />Kumar<span className="text-accent">.</span>
+                </motion.h1>
+
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, delay: 0.8 }}
+                  className="mt-6 md:mt-10 font-mono text-xs md:text-sm tracking-widest text-text-secondary uppercase max-w-xl leading-relaxed mix-blend-difference"
+                >
+                  Testing production applications, discovering vulnerabilities, validating exploitation,<br className="hidden md:block" /> and delivering professional security reporting.
+                </motion.p>
+                
+                {/* Quick Stats/Badges */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, delay: 1 }}
+                  className="mt-8 flex flex-wrap justify-start gap-4"
+                >
+                  {['TryHackMe Top 1%', 'Web & API Security', 'BOLA / IDOR / SSRF', 'Security Training'].map((badge) => (
+                    <span key={badge} className="font-mono text-[9px] md:text-[10px] tracking-widest uppercase border border-border px-4 py-2 text-text-secondary hover:border-accent/50 hover:text-text-primary transition-colors cursor-pointer bg-surface/30 backdrop-blur-sm">
+                      {badge}
+                    </span>
+                  ))}
+                </motion.div>
+              </div>
+
+              <div className="hidden lg:block pointer-events-auto">
+                <ProfileImage />
+              </div>
+            </div>
+        </div>
+      </div>
+      {/* Invisible spacer to allow scrolling past the sticky hero */}
+      <div className="relative z-10 w-full h-[20vh] pointer-events-none" />
+    </section>
+  );
+}
+
