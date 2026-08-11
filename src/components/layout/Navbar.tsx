@@ -113,7 +113,7 @@ export default function Navbar() {
               </button>
             ))}
             <a
-              href="https://drive.google.com/file/d/1U1I9S2geXlpEURN3_P-RjF8SkLZcV6uE/view?usp=sharing"
+              href="https://drive.google.com/file/d/1jDgJHygIgjeE_PX8tqWfAGwh0ejbA1Z8/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-2 relative px-4 py-2 text-[10px] font-mono tracking-widest uppercase text-bg-primary bg-accent hover:bg-accent/90 transition-colors rounded-full font-bold flex items-center gap-2"
@@ -186,7 +186,7 @@ export default function Navbar() {
               ))}
               
               <motion.a
-                href="https://drive.google.com/file/d/1U1I9S2geXlpEURN3_P-RjF8SkLZcV6uE/view?usp=sharing"
+                href="https://drive.google.com/file/d/1jDgJHygIgjeE_PX8tqWfAGwh0ejbA1Z8/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 px-8 py-3 text-sm font-mono tracking-widest uppercase text-bg-primary bg-accent rounded-full font-bold flex items-center gap-2"

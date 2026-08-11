@@ -15,13 +15,13 @@ export interface ExperienceEntry {
 
 export const experience: ExperienceEntry[] = [
   {
-    id: 'boltmartz',
+    id: 'botmartz',
     role: 'Penetration Tester',
-    company: 'Boltmartz IT Solutions',
+    company: 'Botmartz AI solutions',
     period: 'Jan 2026 – Present',
     location: 'Indore, India',
 
-    aboutCompany: 'Boltmartz IT Solutions is a forward-thinking technology and cybersecurity firm specializing in securing enterprise infrastructure, web applications, and cloud environments against modern cyber threats.',
+    aboutCompany: 'Botmartz AI solutions is a forward-thinking technology and cybersecurity firm specializing in securing enterprise infrastructure, web applications, and cloud environments against modern cyber threats.',
     myWork: 'As a Penetration Tester, I was responsible for leading offensive security engagements, conducting comprehensive vulnerability assessments, and executing penetration testing on client platforms. I focused on identifying critical security flaws, building attack chains, and providing actionable remediation strategies.',
     whatILearned: 'I developed a deep understanding of complex authorization vulnerabilities, business logic flaws, and enterprise-grade security reporting. I also honed my skills in automating repetitive reconnaissance and security testing workflows using custom Python and Bash scripts, significantly increasing testing efficiency.',
     whatITested: [

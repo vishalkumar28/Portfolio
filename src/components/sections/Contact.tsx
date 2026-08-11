@@ -89,7 +89,7 @@ export default function Contact() {
             
             {/* Resume */}
             <a
-              href="https://drive.google.com/file/d/1U1I9S2geXlpEURN3_P-RjF8SkLZcV6uE/view?usp=sharing"
+              href="https://drive.google.com/file/d/1jDgJHygIgjeE_PX8tqWfAGwh0ejbA1Z8/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex flex-col gap-2"
