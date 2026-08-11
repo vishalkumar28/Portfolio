@@ -9,11 +9,11 @@ const chains = [
     target: 'Multi-Tenant SaaS API',
     impact: 'Cross-Tenant Data Exposure & Unauthorized Actions',
     steps: [
-      'Reconnaissance & Endpoint Discovery',
-      'Authorization Header Manipulation',
-      'BOLA Vulnerability Identification',
-      '34 Endpoint Attack Chain',
-      'Cross-Tenant Access Validated'
+      'Authorization weakness',
+      '34 API endpoints',
+      'Cross-tenant access',
+      'Sensitive information exposed',
+      'Unauthorized actions'
     ]
   },
   {
@@ -21,11 +21,9 @@ const chains = [
     target: 'SaaS Platform Identity System',
     impact: 'Full Platform Compromise',
     steps: [
-      'Tenant Admin Access Secured',
-      'Authorization Flaw in Account Management',
-      'Role ID Manipulation',
-      'Privilege Escalation',
-      'Platform Super-Admin Access Granted'
+      'Tenant Admin access',
+      'Authorization/account-management weaknesses',
+      'Platform Super-Admin access'
     ]
   },
   {
@@ -33,11 +31,9 @@ const chains = [
     target: 'Cloud-Hosted Web Application',
     impact: 'AWS Credential Exposure',
     steps: [
-      'Input Validation Weakness Discovered',
-      'Server-Side Request Forgery Executed',
-      'Targeted AWS IMDSv1',
-      'Cloud Metadata Extracted',
-      'AWS Credentials & Secrets Exposed'
+      'SSRF vulnerability',
+      'AWS IMDSv1',
+      'Cloud credential exposure'
     ]
   }
 ];

@@ -6,30 +6,31 @@ import * as THREE from 'three';
 
 const ParticleNetwork = ({ isMobile }: { isMobile: boolean }) => {
   const pointsRef = useRef<THREE.Points>(null);
-
   const particleCount = isMobile ? 300 : 800;
 
-  const [positions, colors] = useMemo(() => {
+  const [positions, setPositions] = useState<Float32Array | null>(null);
+  const [colors, setColors] = useState<Float32Array | null>(null);
+
+  useEffect(() => {
     const pos = new Float32Array(particleCount * 3);
     const col = new Float32Array(particleCount * 3);
     const color = new THREE.Color();
     
     for (let i = 0; i < particleCount; i++) {
-      // Create a wide, deep field
       pos[i * 3] = (Math.random() - 0.5) * 12;
       pos[i * 3 + 1] = (Math.random() - 0.5) * 12;
       pos[i * 3 + 2] = (Math.random() - 0.5) * 12;
       
-      // Accent color: #3b82f6 with some variance
       const isAccent = Math.random() > 0.6;
-      color.setHex(isAccent ? 0x3b82f6 : 0x1a2c5b);
+      color.setHex(isAccent ? 0x00FF88 : 0x00331A); // Changed from blue to green palette
       
       col[i * 3] = color.r;
       col[i * 3 + 1] = color.g;
       col[i * 3 + 2] = color.b;
     }
-    return [pos, col];
-  }, []);
+    setPositions(pos);
+    setColors(col);
+  }, [particleCount]);
 
   useFrame((state) => {
     if (!pointsRef.current) return;
@@ -47,6 +48,8 @@ const ParticleNetwork = ({ isMobile }: { isMobile: boolean }) => {
       pointsRef.current.position.y += (targetY - pointsRef.current.position.y) * 0.05;
     }
   });
+
+  if (!positions || !colors) return null;
 
   return (
     <points ref={pointsRef}>
@@ -78,11 +81,17 @@ export default function InteractiveBackground() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
-    setIsMobile(window.innerWidth < 768);
+    let mounted = true;
+    if (mounted) {
+      setIsMounted(true);
+      setIsMobile(window.innerWidth < 768);
+    }
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      mounted = false;
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   if (!isMounted) return null;

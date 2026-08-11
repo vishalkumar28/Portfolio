@@ -2,13 +2,15 @@
 
 import { motion } from 'framer-motion';
 import ProfileImage from '@/components/ui/ProfileImage';
+import SecurityCore3D from '@/components/ui/SecurityCore3D';
 
 export default function Hero() {
   return (
     <section className="relative w-full bg-transparent" id="hero">
       <div className="sticky top-0 h-[100dvh] min-h-[600px] w-full overflow-hidden flex flex-col">
-        {/* Gradients to blend text over the interactive background */}
+        {/* 3D Background */}
         <div className="absolute inset-0 z-0">
+          <SecurityCore3D />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary/90 z-10 pointer-events-none" />
         </div>
 
@@ -24,7 +26,7 @@ export default function Hero() {
                 >
                   <span className="w-2 h-2 rounded-none bg-accent animate-pulse" />
                   <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-text-primary mix-blend-difference">
-                    Penetration Tester | Cybersecurity Trainer
+                    Penetration Tester | Web & API Security | Cybersecurity Trainer
                   </span>
                 </motion.div>
 
@@ -46,18 +48,22 @@ export default function Hero() {
                   Testing production applications, discovering vulnerabilities, validating exploitation,<br className="hidden md:block" /> and delivering professional security reporting.
                 </motion.p>
                 
-                {/* Quick Stats/Badges */}
+                {/* CTAs */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1 }}
-                  className="mt-8 flex flex-wrap justify-start gap-4"
+                  className="mt-8 flex flex-wrap justify-start gap-4 pointer-events-auto"
                 >
-                  {['TryHackMe Top 1%', 'Web & API Security', 'BOLA / IDOR / SSRF', 'Security Training'].map((badge) => (
-                    <span key={badge} className="font-mono text-[9px] md:text-[10px] tracking-widest uppercase border border-border px-4 py-2 text-text-secondary hover:border-accent/50 hover:text-text-primary transition-colors cursor-pointer bg-surface/30 backdrop-blur-sm">
-                      {badge}
-                    </span>
-                  ))}
+                  <a href="#proof" className="px-6 py-3 bg-accent text-bg-primary font-mono text-xs uppercase tracking-widest font-bold hover:bg-accent/90 transition-colors">
+                    Explore My Work
+                  </a>
+                  <a href="/resume_tra (1).pdf" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/20 text-text-primary font-mono text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-colors">
+                    View Resume
+                  </a>
+                  <a href="#contact" className="px-6 py-3 text-text-secondary font-mono text-xs uppercase tracking-widest hover:text-text-primary transition-colors">
+                    Contact Me
+                  </a>
                 </motion.div>
               </div>
 
