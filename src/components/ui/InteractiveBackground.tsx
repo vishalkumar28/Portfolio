@@ -22,7 +22,7 @@ const ParticleNetwork = ({ isMobile }: { isMobile: boolean }) => {
       pos[i * 3 + 2] = (Math.random() - 0.5) * 12;
       
       const isAccent = Math.random() > 0.6;
-      color.setHex(isAccent ? 0x00FF88 : 0x00331A); // Changed from blue to green palette
+      color.setHex(isAccent ? 0x3b82f6 : 0x1a2c5b);
       
       col[i * 3] = color.r;
       col[i * 3 + 1] = color.g;

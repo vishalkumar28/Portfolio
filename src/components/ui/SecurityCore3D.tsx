@@ -42,7 +42,7 @@ function NetworkNodes() {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
-          color="#00FF88"
+          color="#3b82f6"
           size={0.02}
           sizeAttenuation={true}
           depthWrite={false}
