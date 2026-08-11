@@ -17,7 +17,7 @@ export const experience: ExperienceEntry[] = [
   {
     id: 'botmartz',
     role: 'Penetration Tester',
-    company: 'Boltmartz IT Solutions',
+    company: 'Botmartz AI Solutions',
     period: 'Jan 2026 – Present',
     location: 'Indore, India',
 
