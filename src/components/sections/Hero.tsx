@@ -48,23 +48,6 @@ export default function Hero() {
                   Testing production applications, discovering vulnerabilities, validating exploitation,<br className="hidden md:block" /> and delivering professional security reporting.
                 </motion.p>
                 
-                {/* CTAs */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 1 }}
-                  className="mt-8 flex flex-wrap justify-start gap-4 pointer-events-auto"
-                >
-                  <a href="#proof" className="px-6 py-3 bg-accent text-bg-primary font-mono text-xs uppercase tracking-widest font-bold hover:bg-accent/90 transition-colors">
-                    Explore My Work
-                  </a>
-                  <a href="/resume_tra (1).pdf" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/20 text-text-primary font-mono text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-colors">
-                    View Resume
-                  </a>
-                  <a href="#contact" className="px-6 py-3 text-text-secondary font-mono text-xs uppercase tracking-widest hover:text-text-primary transition-colors">
-                    Contact Me
-                  </a>
-                </motion.div>
               </div>
 
               <div className="flex lg:block items-center justify-center w-full lg:w-auto mt-8 lg:mt-0 pointer-events-auto">
